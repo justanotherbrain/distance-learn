@@ -55,7 +55,7 @@ class DistanceLearn:
     for i in range(2,self.num_samples):
       d = []
       for j in range(i):
-        d.append( np.arccos(self.confusion_matrix[i,j]) )
+        d.append( self.confusion_matrix[i,j] )
       S[:,i] = np.dot( np.array(d), np.linalg.pinv(S[:,range(i)]) )
       l = np.square(np.linalg.norm(S[:,i]))
       if (l <= 1):
